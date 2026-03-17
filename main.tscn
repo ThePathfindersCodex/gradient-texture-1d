@@ -1,0 +1,138 @@
+[gd_scene load_steps=10 format=3 uid="uid://qyj2w3opkl5i"]
+
+[ext_resource type="Script" uid="uid://7un3dx1nc21m" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="Shader" uid="uid://4q74l04dl2kn" path="res://display_grad.gdshader" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://c2q6ntvgdourk" path="res://gradients/sunset.tres" id="3_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://c3hd0rgl34k8b" path="res://grayscale_transp.png" id="4_1bvp3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0xm2m"]
+shader = ExtResource("1_ig7tw")
+shader_parameter/gradient_texture = ExtResource("3_1bvp3")
+shader_parameter/gradient_mode = 0
+shader_parameter/steps = 0
+shader_parameter/hue_shift = 0.0
+shader_parameter/gradient_center = Vector2(0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1bvp3"]
+shader = ExtResource("1_ig7tw")
+shader_parameter/gradient_texture = ExtResource("3_1bvp3")
+shader_parameter/gradient_mode = 1
+shader_parameter/steps = 0
+shader_parameter/hue_shift = 0.0
+shader_parameter/gradient_center = Vector2(0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lquwl"]
+shader = ExtResource("1_ig7tw")
+shader_parameter/gradient_texture = ExtResource("3_1bvp3")
+shader_parameter/gradient_mode = 2
+shader_parameter/steps = 0
+shader_parameter/hue_shift = 0.0
+shader_parameter/gradient_center = Vector2(0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
+shader = ExtResource("1_ig7tw")
+shader_parameter/gradient_texture = ExtResource("3_1bvp3")
+shader_parameter/gradient_mode = 3
+shader_parameter/steps = 0
+shader_parameter/hue_shift = 0.0
+shader_parameter/gradient_center = Vector2(0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_272bh"]
+shader = ExtResource("1_ig7tw")
+shader_parameter/gradient_texture = ExtResource("3_1bvp3")
+shader_parameter/gradient_mode = 4
+shader_parameter/steps = 0
+shader_parameter/hue_shift = 0.0
+shader_parameter/gradient_center = Vector2(0.5, 0.5)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_0xm2m")
+
+[node name="OptionButtonGradients" type="OptionButton" parent="."]
+unique_name_in_owner = true
+offset_left = 60.0
+offset_top = 7.505
+offset_right = 92.0
+offset_bottom = 27.505009
+focus_mode = 0
+
+[node name="ColorRectCurrentGradient1D" type="ColorRect" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_0xm2m")
+offset_left = 60.0
+offset_top = 57.0
+offset_right = 825.0
+offset_bottom = 97.0
+
+[node name="ColorRectCurrentGradientDiagonal" type="ColorRect" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_1bvp3")
+offset_left = 60.0
+offset_top = 119.0
+offset_right = 435.0
+offset_bottom = 494.0
+
+[node name="ColorRectCurrentGradientRadial" type="ColorRect" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_lquwl")
+offset_left = 450.0
+offset_top = 119.0
+offset_right = 825.0
+offset_bottom = 494.0
+
+[node name="ColorRectCurrentGradientConical" type="ColorRect" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_7mycd")
+offset_left = 60.0
+offset_top = 510.0
+offset_right = 435.0
+offset_bottom = 885.0
+
+[node name="TextureRectGrayscaleTest" type="TextureRect" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_272bh")
+offset_left = 450.0
+offset_top = 510.0
+offset_right = 825.0
+offset_bottom = 885.0
+texture = ExtResource("4_1bvp3")
+expand_mode = 2
+
+[node name="HSliderSteps" type="HSlider" parent="."]
+offset_left = 518.0
+offset_top = 6.0
+offset_right = 824.0
+offset_bottom = 22.0
+focus_mode = 0
+max_value = 30.0
+tick_count = 31
+ticks_on_borders = true
+
+[node name="Label" type="Label" parent="HSliderSteps"]
+layout_mode = 0
+offset_left = -49.0
+offset_right = 43.0
+offset_bottom = 23.0
+text = "Steps"
+
+[node name="HSliderHueShift" type="HSlider" parent="."]
+offset_left = 518.0
+offset_top = 32.0
+offset_right = 824.0
+offset_bottom = 48.0
+focus_mode = 0
+max_value = 1.0
+step = 0.001
+tick_count = 6
+ticks_on_borders = true
+
+[node name="Label" type="Label" parent="HSliderHueShift"]
+layout_mode = 0
+offset_left = -48.0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Hue"
+
+[connection signal="item_selected" from="OptionButtonGradients" to="." method="_on_option_button_gradients_item_selected"]
+[connection signal="value_changed" from="HSliderSteps" to="." method="_on_h_slider_steps_value_changed"]
+[connection signal="value_changed" from="HSliderHueShift" to="." method="_on_h_slider_hue_shift_value_changed"]
