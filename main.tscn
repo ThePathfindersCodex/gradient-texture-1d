@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://qyj2w3opkl5i"]
+[gd_scene format=3 uid="uid://qyj2w3opkl5i"]
 
 [ext_resource type="Script" uid="uid://7un3dx1nc21m" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="Shader" uid="uid://4q74l04dl2kn" path="res://display_grad.gdshader" id="1_ig7tw"]
@@ -45,10 +45,10 @@ shader_parameter/steps = 0
 shader_parameter/hue_shift = 0.0
 shader_parameter/gradient_center = Vector2(0.5, 0.5)
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" unique_id=1174922976]
 script = ExtResource("1_0xm2m")
 
-[node name="OptionButtonGradients" type="OptionButton" parent="."]
+[node name="OptionButtonGradients" type="OptionButton" parent="." unique_id=719679731]
 unique_name_in_owner = true
 offset_left = 60.0
 offset_top = 7.505
@@ -56,7 +56,7 @@ offset_right = 92.0
 offset_bottom = 27.505009
 focus_mode = 0
 
-[node name="ColorRectCurrentGradient1D" type="ColorRect" parent="."]
+[node name="ColorRectCurrentGradient1D" type="ColorRect" parent="." unique_id=1555461898]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_0xm2m")
 offset_left = 60.0
@@ -64,7 +64,7 @@ offset_top = 57.0
 offset_right = 825.0
 offset_bottom = 97.0
 
-[node name="ColorRectCurrentGradientDiagonal" type="ColorRect" parent="."]
+[node name="ColorRectCurrentGradientDiagonal" type="ColorRect" parent="." unique_id=1350623822]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_1bvp3")
 offset_left = 60.0
@@ -72,7 +72,7 @@ offset_top = 119.0
 offset_right = 435.0
 offset_bottom = 494.0
 
-[node name="ColorRectCurrentGradientRadial" type="ColorRect" parent="."]
+[node name="ColorRectCurrentGradientRadial" type="ColorRect" parent="." unique_id=171092867]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_lquwl")
 offset_left = 450.0
@@ -80,7 +80,7 @@ offset_top = 119.0
 offset_right = 825.0
 offset_bottom = 494.0
 
-[node name="ColorRectCurrentGradientConical" type="ColorRect" parent="."]
+[node name="ColorRectCurrentGradientConical" type="ColorRect" parent="." unique_id=662548354]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_7mycd")
 offset_left = 60.0
@@ -88,7 +88,7 @@ offset_top = 510.0
 offset_right = 435.0
 offset_bottom = 885.0
 
-[node name="TextureRectGrayscaleTest" type="TextureRect" parent="."]
+[node name="TextureRectGrayscaleTest" type="TextureRect" parent="." unique_id=826233894]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_272bh")
 offset_left = 450.0
@@ -98,7 +98,7 @@ offset_bottom = 885.0
 texture = ExtResource("4_1bvp3")
 expand_mode = 2
 
-[node name="HSliderSteps" type="HSlider" parent="."]
+[node name="HSliderSteps" type="HSlider" parent="." unique_id=2057246301]
 offset_left = 518.0
 offset_top = 6.0
 offset_right = 824.0
@@ -108,14 +108,14 @@ max_value = 30.0
 tick_count = 31
 ticks_on_borders = true
 
-[node name="Label" type="Label" parent="HSliderSteps"]
+[node name="Label" type="Label" parent="HSliderSteps" unique_id=812530661]
 layout_mode = 0
 offset_left = -49.0
 offset_right = 43.0
 offset_bottom = 23.0
 text = "Steps"
 
-[node name="HSliderHueShift" type="HSlider" parent="."]
+[node name="HSliderHueShift" type="HSlider" parent="." unique_id=294515722]
 offset_left = 518.0
 offset_top = 32.0
 offset_right = 824.0
@@ -126,7 +126,7 @@ step = 0.001
 tick_count = 6
 ticks_on_borders = true
 
-[node name="Label" type="Label" parent="HSliderHueShift"]
+[node name="Label" type="Label" parent="HSliderHueShift" unique_id=1867004371]
 layout_mode = 0
 offset_left = -48.0
 offset_right = 40.0

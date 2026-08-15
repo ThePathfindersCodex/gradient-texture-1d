@@ -1,6 +1,6 @@
 **Linear Gradient Texture Explorer**
 
-Godot Engine v4.5.1.stable
+Godot Engine v4.7
 
 ![thumbnail](gradients1.png "GradientTexture1D Explorer")
 ![thumbnail](gradients2.png "GradientTexture1D Explorer")
