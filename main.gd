@@ -81,72 +81,36 @@ func _generate_preview(gradient_tex:GradientTexture1D) -> Texture2D:
 func _on_option_button_gradients_item_selected(index:int) -> void:
 	_apply_gradient(index)
 
-func _apply_gradient(index:int):
+func _set_shader_parameters(parameter_key, value) -> void:
+	var mat := gradient_rect.material as ShaderMaterial
+	if mat:
+		mat.set_shader_parameter(parameter_key, value)
+		
+	var mat2 := gradient2_rect.material as ShaderMaterial
+	if mat2:
+		mat2.set_shader_parameter(parameter_key, value)
 
+	var mat3 := gradient3_rect.material as ShaderMaterial
+	if mat3:
+		mat3.set_shader_parameter(parameter_key, value)
+		
+	var mat4 := gradient4_rect.material as ShaderMaterial
+	if mat4:
+		mat4.set_shader_parameter(parameter_key, value)
+		
+	var mat5 := gradient5_rect.material as ShaderMaterial
+	if mat5:
+		mat5.set_shader_parameter(parameter_key, value)
+
+func _apply_gradient(index:int):
 	if index < 0 or index >= gradient_resources.size():
 		return
 
 	var gradient_tex : GradientTexture1D = gradient_resources[index]
-
-	var mat := gradient_rect.material as ShaderMaterial
-	if mat:
-		mat.set_shader_parameter("gradient_texture", gradient_tex)
-		
-	var mat2 := gradient2_rect.material as ShaderMaterial
-	if mat2:
-		mat2.set_shader_parameter("gradient_texture", gradient_tex)
-
-	var mat3 := gradient3_rect.material as ShaderMaterial
-	if mat3:
-		mat3.set_shader_parameter("gradient_texture", gradient_tex)
-		
-	var mat4 := gradient4_rect.material as ShaderMaterial
-	if mat4:
-		mat4.set_shader_parameter("gradient_texture", gradient_tex)
-		
-	var mat5 := gradient5_rect.material as ShaderMaterial
-	if mat5:
-		mat5.set_shader_parameter("gradient_texture", gradient_tex)
+	_set_shader_parameters("gradient_texture", gradient_tex)
 
 func _on_h_slider_steps_value_changed(value: float) -> void:
-	var mat := gradient_rect.material as ShaderMaterial
-	if mat:
-		mat.set_shader_parameter("steps", value)
-		
-	var mat2 := gradient2_rect.material as ShaderMaterial
-	if mat2:
-		mat2.set_shader_parameter("steps", value)
-
-	var mat3 := gradient3_rect.material as ShaderMaterial
-	if mat3:
-		mat3.set_shader_parameter("steps", value)
-		
-	var mat4 := gradient4_rect.material as ShaderMaterial
-	if mat4:
-		mat4.set_shader_parameter("steps", value)
-
-	var mat5 := gradient5_rect.material as ShaderMaterial
-	if mat5:
-		mat5.set_shader_parameter("steps", value)
+	_set_shader_parameters("steps", value)
 
 func _on_h_slider_hue_shift_value_changed(value: float) -> void:
-	var mat := gradient_rect.material as ShaderMaterial
-	if mat:
-		mat.set_shader_parameter("hue_shift", value)
-		
-	var mat2 := gradient2_rect.material as ShaderMaterial
-	if mat2:
-		mat2.set_shader_parameter("hue_shift", value)
-
-	var mat3 := gradient3_rect.material as ShaderMaterial
-	if mat3:
-		mat3.set_shader_parameter("hue_shift", value)
-		
-	var mat4 := gradient4_rect.material as ShaderMaterial
-	if mat4:
-		mat4.set_shader_parameter("hue_shift", value)
-
-	var mat5 := gradient5_rect.material as ShaderMaterial
-	if mat5:
-		mat5.set_shader_parameter("hue_shift", value)
-		
+	_set_shader_parameters("hue_shift", value)
